@@ -51,11 +51,6 @@ Restart ssh:
 
 sudo systemctl restart ssh
 
-## Running
-
-Start monitor:
-
-sudo ./monitor.sh
 
 ## Testing
 
