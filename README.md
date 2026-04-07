@@ -2,7 +2,7 @@
 
 ## About the Project
 
-This project is a simple SSH Brute Force Akkact detection system made for LSAV course.
+This project is a simple SSH Brute Force Attack detection system made for LSAV course.
 It monitors failed SSH login attempts and assigns risk scores to IP addresses and users. Based on these scores, the system can delay or block suspicious login attempts using PAM.
 
 The goal of the project is to understand:
