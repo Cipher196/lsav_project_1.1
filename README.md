@@ -2,7 +2,7 @@
 
 ## About the Project
 
-This project is a simple SSH intrusion detection system made for Linux System Administration course.
+This project is a simple SSH Brute Force Akkact detection system made for LSAV course.
 It monitors failed SSH login attempts and assigns risk scores to IP addresses and users. Based on these scores, the system can delay or block suspicious login attempts using PAM.
 
 The goal of the project is to understand:
@@ -10,7 +10,6 @@ The goal of the project is to understand:
 * Linux logs
 * PAM (Pluggable Authentication Modules)
 * Basic intrusion detection ideas
-* Bash scripting
 
 ## Files in Project
 
@@ -19,6 +18,9 @@ Main script that monitors failed SSH logins and updates risk scores.
 
 pam_decision.sh
 PAM script that decides whether to allow or block login.
+
+report.sh
+script to generate report of attack.
 
 ## How it works
 
