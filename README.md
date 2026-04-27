@@ -1,60 +1,69 @@
-# LSAV – SSH Login Security Project
+# LSAV – SSH Security Project
 
 ## About the Project
 
-This project is a simple SSH Brute Force Attack detection system made for LSAV course.
-It monitors failed SSH login attempts and assigns risk scores to IP addresses and users. Based on these scores, the system can delay or block suspicious login attempts using PAM.
+In this project we try to detect ssh attack on users and ip on our server.
+we monitor failed ssh login attempts by assigning risk scores to users and ip and user-ip pairs. These risk score help us to take action.
 
-The goal of the project is to understand:
+The goal of the project is to:
 
-* Linux logs
-* PAM (Pluggable Authentication Modules)
-* Basic intrusion detection ideas
+* Read Logs in linux using journalctl.
+* Understand and Use PAM (Pluggable Authentication Modules).
+* Detect Diffrent type of attack.
 
 ## Files in Project
 
 monitor.sh
-Main script that monitors failed SSH logins and updates risk scores.
+Main script that monitors failed SSH logins and updates risk scores accordingly. 
 
 pam_decision.sh
-PAM script that decides whether to allow or block login.
+Script that decides whether to allow or block login.
 
 report.sh
 script to generate report of attack.
 
 ## How it works
 
-1. monitor.sh reads failed SSH attempts from journalctl
-2. Scores are updated for IP and user
-3. Alerts are generated if suspicious behaviour is detected
-4. pam_decision.sh checks scores during login
-5. Login is allowed, delayed or denied
+1. monitor.sh reads failed SSH attempts from journalctl.
+2. Scores get updated for users, ip and user-ip pairs.
+3. Alerts are also generated if suspicious behaviour is detected.
+4. pam_decision.sh checks scores during login.
+5. Login can be allowed, delayed or denied.
 
 ## Setup
 
 Make scripts executable:
 
 chmod +x monitor.sh
+
 chmod +x pam_decision.sh
+
 
 Create working directory:
 
 mkdir -p /home/cipher/lsavproject
 
+
 Add PAM rule:
 
 sudo nano /etc/pam.d/sshd
 
+
 Add line:
 
 auth required pam_exec.so /home/cipher/debian_codespace/linux_project/pam_decision.sh
+
 
 Restart ssh:
 
 sudo systemctl restart ssh
 
 
-## Testing
+## Testing ( local )
+
+Run ./monitor.sh
+
+In Other Tab:
 
 Generate failed logins:
 
